@@ -14,6 +14,11 @@ app.register(fastifyStatic, {
 
 app.register(imagesRoutes)
 
-app.listen({ port: 3001 }).then(() => {
-  console.log('🚀 server running at http://localhost:3001')
-})
+app
+  .listen({
+    host: '0.0.0.0',
+    port: process.env.PORT ? Number(process.env.PORT) : 3001,
+  })
+  .then(() => {
+    console.log('🚀 server running at http://localhost:3001')
+  })
